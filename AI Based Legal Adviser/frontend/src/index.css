@@ -1,52 +1,55 @@
-
 *,
 ::before,
-::after{
+::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-label{
+label {
   font-size: 20px;
 }
 
 html,
-body{
+body {
   height: 100%;
   width: 100%;
 }
 
-body{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+body {
+  /* Remove centering */
+  display: block; 
+  margin: 0;
+  padding: 0;
 }
 
-.container{
+.container {
   background-color: #FFF;
   padding: 32px 48px;
   border-radius: 10px;
   width: 100%;
   max-width: 400px;
   box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  /* Center the container only */
+  margin: 50px auto; /* Adjusts vertical space from top */
 }
 
-.container > h1{
+.container > h1 {
   margin-bottom: 20px;
 }
 
-.container > form{
+.container > form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.container div{
+
+.container div {
   display: flex;
   flex-direction: column;
 }
 
-.container input{
+.container input {
   width: 100%;
   font-size: 20px;
   padding: 10px;
@@ -55,12 +58,12 @@ body{
   border-bottom: 1px solid black;
 }
 
-.container input::placeholder{
+.container input::placeholder {
   font-size: 12px;
   font-style: italic;
 }
 
-button{
+button {
   background-color: purple;
   border: none;
   font-size: 20px;
