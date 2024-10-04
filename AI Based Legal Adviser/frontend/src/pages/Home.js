@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { handleError, handleSuccess } from '../utils';
 import { ToastContainer } from 'react-toastify';
@@ -8,41 +8,44 @@ function Home() {
     const [products, setProducts] = useState('');
     const navigate = useNavigate();
 
+    // Simple Navbar
+    const Navbar = () => (
+        <nav style={{ padding: '10px', background: '#333', color: '#fff', display: 'flex', justifyContent: 'space-between' }}>
+            <div>
+                <a href="/" style={{ color: '#fff', textDecoration: 'none', marginRight: '20px' }}>Home</a>
+                
+                <a href="/contact" style={{ color: '#fff', textDecoration: 'none', marginRight: '20px' }}>Contact</a>
+                <a href="/blog" style={{ color: '#fff', textDecoration: 'none' }}>Blog</a>
+            </div>
+            <div>
+                {loggedInUser ? (
+                    <button onClick={handleLogout} style={{ background: 'red', color: 'white', padding: '5px 10px', border: 'none', borderRadius: '4px' }}>Logout</button>
+                ) : (
+                    <a href="/login" style={{ color: '#fff', textDecoration: 'none' }}>Login</a>
+                )}
+            </div>
+        </nav>
+    );
+
     useEffect(() => {
         setLoggedInUser(localStorage.getItem('loggedInUser'));
 
-        // Embedding the chatbot script with error handling
-        try {
-            const script1 = document.createElement('script');
-            script1.innerHTML = `
-                window.embeddedChatbotConfig = {
-                    chatbotId: "ApZTTdHUt3Ipnz4inDOl3",
-                    domain: "www.chatbase.co"
-                };
-            `;
-            document.body.appendChild(script1);
+        // Adding chatbot scripts dynamically
+        const script1 = document.createElement('script');
+        script1.src = "https://cdn.botpress.cloud/webchat/v2.2/inject.js";
+        script1.async = true;
+        document.body.appendChild(script1);
 
-            const script2 = document.createElement('script');
-            script2.src = "https://www.chatbase.co/embed.min.js";
-            script2.setAttribute('chatbotId', "ApZTTdHUt3Ipnz4inDOl3");
-            script2.setAttribute('domain', "www.chatbase.co");
-            script2.defer = true;
+        const script2 = document.createElement('script');
+        script2.src = "https://files.bpcontent.cloud/2024/10/03/14/20241003143013-HTYKHCLK.js";
+        script2.async = true;
+        document.body.appendChild(script2);
 
-            // Handle script loading errors
-            script2.onerror = () => {
-                handleError(new Error('Failed to load chatbot script'));
-            };
-
-            document.body.appendChild(script2);
-
-            return () => {
-                // Cleanup scripts when component unmounts
-                document.body.removeChild(script1);
-                document.body.removeChild(script2);
-            };
-        } catch (error) {
-            handleError(error);
-        }
+        return () => {
+            // Clean up scripts when component unmounts
+            document.body.removeChild(script1);
+            document.body.removeChild(script2);
+        };
     }, []);
 
     const handleLogout = (e) => {
@@ -52,16 +55,16 @@ function Home() {
         setTimeout(() => {
             navigate('/login');
         }, 1000);
-    }
+    };
 
     const fetchProducts = async () => {
         try {
-            const url = "http://localhost:8080/products";
+            const url = "http://localhost:8080";
             const headers = {
                 headers: {
-                    'Authorization': localStorage.getItem('token')
-                }
-            }
+                    'Authorization': localStorage.getItem('token'),
+                },
+            };
             const response = await fetch(url, headers);
             const result = await response.json();
             console.log(result);
@@ -69,7 +72,7 @@ function Home() {
         } catch (err) {
             handleError(err);
         }
-    }
+    };
 
     useEffect(() => {
         fetchProducts();
@@ -77,20 +80,21 @@ function Home() {
 
     return (
         <div>
+            {/* Navbar component */}
+            <Navbar />
+
             <h1>Welcome {loggedInUser}</h1>
-            <button onClick={handleLogout}>Logout</button>
             <div>
-                {
-                    products && products.map((item, index) => (
+                {products &&
+                    products.map((item, index) => (
                         <ul key={index}>
-                            <span>{item.name}  {item.price}</span>
+                            <span>{item.name} : {item.price}</span>
                         </ul>
-                    ))
-                }
+                    ))}
             </div>
             <ToastContainer />
         </div>
-    )
+    );
 }
 
 export default Home;
