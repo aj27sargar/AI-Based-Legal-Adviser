@@ -1,5 +1,26 @@
-**config env file
+Navigate to the project folder:
 
-PORT = 8080
-MONGO_CONN = "mongodb+srv://ajitsargar:BhCCNQaADQdRK7y4@cluster0.rhqhk.mongodb.net/auth-db?retryWrites=true&w=majority&appName=Cluster0"
-JWT_SECRET = "secret-123"
+bash
+Copy code
+cd final-project
+Navigate to both the server and client directories (one at a time) to install dependencies:
+
+bash
+Copy code
+cd server
+npm i
+cd ../client
+npm i
+To start the server, run:
+
+bash
+Copy code
+cd server
+npm start
+To start the client (in a separate terminal), run:
+
+bash
+Copy code
+cd client
+npm run dev
+This will set up your development environment with the client running on a local server and the backend server active.
