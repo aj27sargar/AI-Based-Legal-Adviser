@@ -1,0 +1,70 @@
+/* Chatbot.css */
+body {
+    background-color: #f8f9fa; /* Light background for contrast */
+  }
+  
+  /* Container for the chatbot buttons */
+  .flex {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    justify-content: flex-start; /* Align buttons to the top */
+    align-items: flex-start; /* Align buttons to the left */
+    /* position: fixed; */
+    top: 190px; /* Positioned towards the top */
+    left: 20px; /* Positioned towards the left */
+    gap: 10px; /* Space between buttons */
+    z-index: 1000; /* Ensure it is above other content */
+  }
+  
+  /* Style for buttons */
+  button {
+    background-color: #007bff; /* Bootstrap primary color */
+    border: none;
+    border-radius: 5px; /* Slightly rounded corners */
+    color: white; /* Text color */
+    font-size: 18px; /* Increased font size for better visibility */
+    padding: 15px 25px; /* Increased padding for a larger click area */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+    width: 220px; /* Set a fixed width for all buttons */
+  }
+  
+  /* Hover effect for buttons */
+  button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+  }
+  
+  /* Focus effect for accessibility */
+  button:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Custom focus effect */
+  }
+  
+  /* Button for configuration */
+  button:nth-child(4) {
+    background-color: #28a745; /* Green for configure */
+  }
+  
+  button:nth-child(4):hover {
+    background-color: #218838; /* Darker green on hover */
+  }
+  
+  /* Button for sending events */
+  button:nth-child(5) {
+    background-color: #ffc107; /* Yellow for sending events */
+  }
+  
+  button:nth-child(5):hover {
+    background-color: #e0a800; /* Darker yellow on hover */
+  }
+  
+  /* Button for sending messages */
+  button:nth-child(6) {
+    background-color: #17a2b8; /* Info color for sending messages */
+  }
+  
+  button:nth-child(6):hover {
+    background-color: #138496; /* Darker blue on hover */
+  }
+  

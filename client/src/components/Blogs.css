@@ -1,0 +1,162 @@
+/* App.css or BlogCard.css */
+
+/* .blog-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+     text-align: center; 
+    font-size: 20px; 
+    margin-bottom: 20px; 
+} */
+
+.blog-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+    text-align: center; /* Center content within the container */
+}
+
+.blog-container h1 {
+    width: 100%;
+    text-align: center; /* Center the heading */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+
+.blog-card {
+    /* background-color: #ff0000; Changed from white to red */
+    background-color: #99b353; /* Changed from white to red */
+
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: 800px;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.blog-card:hover {
+    transform: scale(1.05);
+}
+
+.blog-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-title {
+    font-size: 1.5rem;
+    margin: 10px;
+}
+
+.blog-description {
+    font-size: 1rem;
+    margin: 10px;
+    color: #555;
+}
+
+.blog-button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #ff0000; /* Changed from white to red */
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 10px;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+}
+
+.blog-button:hover {
+    background-color: #0056b3;
+}
+
+header {
+    background-color: #007bff;
+    color: green; /* Changed from white to red */
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin: 50px;
+    padding: 50px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white; /* Link color */
+    /* text-decoration: none; */
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth hover effects */
+    border-radius: 4px; /* Rounded edges */
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Section Styles */
+section {
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #ff0000; /* Changed from white to red */
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Blogs */
+.blogs {
+    margin-top: 1rem;
+}
+
+.blogs h2 {
+    font-size: 1.8rem;
+}
+
+.blog {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    background-color: #f9f9f9;
+}
+
+.blog h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.blog p {
+    margin-bottom: 1rem;
+}
+
+.blog small {
+    font-style: italic;
+    color: #555;
+}
